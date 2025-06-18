@@ -2,10 +2,77 @@
 <html lang="th">
 <head>
   <meta charset="UTF-8" />
-  <title>เว็บไซต์ของฉัน</title>
+  <title>วันครบรอบของเรา</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #ffd3e0 0%, #ffa4c4 100%);
+      color: #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      background: white;
+      padding: 2rem 3rem;
+      border-radius: 16px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.25);
+      text-align: center;
+      max-width: 420px;
+    }
+    h1 {
+      margin-bottom: 0.5rem;
+      color: #d6336c;
+    }
+    .date {
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+      color: #555;
+    }
+    .count {
+      font-size: 3rem;
+      font-weight: bold;
+      color: #e91e63;
+    }
+    .label {
+      font-size: 1rem;
+      color: #777;
+    }
+    .heart {
+      font-size: 2rem;
+      color: red;
+      margin-top: 1rem;
+      animation: beat 1s infinite;
+    }
+    @keyframes beat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+    }
+  </style>
 </head>
 <body>
-  <h1>ว่าไง!</h1>
-  <p>นี่คือเว็บไซต์แรกของฉันที่ทำบน GitHub Pages</p>
+  <div class="container">
+    <h1>แมะดะห์ ❤️</h1>
+    <div class="date">เราคบกันตั้งแต่ 20 มกราคม 2020</div>
+    <div class="count" id="daysCount">กำลังโหลด...</div>
+    <div class="label">วันแล้วที่เราคบกัน 🥰</div>
+    <div class="heart">❤️</div>
+  </div>
+
+  <script>
+    const startDate = new Date('2020-01-20'); // วันที่คบกัน
+    const today = new Date();
+
+    // ล้างเวลาทำให้คำนวณตรงวัน
+    startDate.setHours(0,0,0,0);
+    today.setHours(0,0,0,0);
+
+    const diffTime = today - startDate;
+    const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+
+    document.getElementById('daysCount').textContent = diffDays;
+  </script>
 </body>
 </html>
